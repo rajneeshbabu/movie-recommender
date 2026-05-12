@@ -471,7 +471,7 @@ async function renderCards(queryTitle, recs) {
   msg.textContent = 'Loading movie data…';
 
   try {
-    const resp   = await fetch('data.zip');
+    const resp   = await fetch('Dataset/data.zip');
     const buffer = await resp.arrayBuffer();
     const zip    = await JSZip.loadAsync(buffer);
     const text   = await zip.file('data.json').async('string');
