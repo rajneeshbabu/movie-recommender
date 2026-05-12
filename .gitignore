@@ -1,0 +1,8 @@
+.DS_Store
+.ipynb_checkpoints/
+tmdb_5000_credits.csv
+tmdb_5000_movies.csv
+models/similarity.pkl
+models/movie_list.pkl
+__pycache__/
+*.pyc
