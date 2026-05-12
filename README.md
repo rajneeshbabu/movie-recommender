@@ -57,11 +57,11 @@ movie-recommender/
 │
 └── models/
     ├── models.zip                # movie_dict.pkl + movie_list.pkl + plots (1.7 MB)
-    ├── movie_dict.pkl            # enriched movie dataframe
-    ├── movie_list.pkl            # list of all movie titles
-    ├── eda_overview.png          # EDA plots
-    ├── genre_distribution.png
-    └── similarity.pkl            # cosine similarity matrix — 177 MB, not in git
+       ├── movie_dict.pkl            # enriched movie dataframe
+       ├── movie_list.pkl            # list of all movie titles
+       ├── eda_overview.png          # EDA plots
+       ├── genre_distribution.png
+       └── similarity.pkl            # cosine similarity matrix — 177 MB, not in git
 ```
 
 > **Note**: `models/similarity.pkl` (177 MB) exceeds GitHub's file limit and is excluded from git.
