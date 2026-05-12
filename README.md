@@ -18,7 +18,7 @@ A content-based movie recommendation system. Pick any movie from 4,796 titles an
 User selects a movie
         |
         v
-Pre-computed TF-IDF similarity scores (data.json)
+Pre-computed TF-IDF similarity scores (Dataset/data.zip)
         |
         v
 Top 5 most similar movies ranked by cosine similarity + rating boost
@@ -31,7 +31,7 @@ Results shown instantly in browser — no backend needed
 ```
 
 ### Why content-based filtering?
-The model builds a rich text profile for each movie from its overview, genres, keywords, top 5 cast members, and director. It uses **TF-IDF vectorization** (better than bag-of-words — downweights common words, highlights distinctive ones) and **cosine similarity** to find movies with the most similar profiles.
+The model builds a rich text profile for each movie from its overview, genres, keywords, top 5 cast members, and director. It uses **TF-IDF vectorization** and **cosine similarity** to find movies with the most similar profiles.
 
 **Feature weighting:**
 - Director → weighted 3× (strongest signal)
@@ -44,18 +44,28 @@ The model builds a rich text profile for each movie from its overview, genres, k
 
 ```
 movie-recommender/
-├── index.html               # static webpage — works on GitHub Pages
-├── data.json                # pre-computed top-5 recs for all 4,796 movies
-├── app.py                   # Streamlit local app (run on your machine)
-├── requirements.txt         # Python dependencies for local app
-├── movie_recommender.ipynb  # full training notebook
-├── tmdb_5000_movies.csv     # TMDB dataset — movies
-├── tmdb_5000_credits.csv    # TMDB dataset — cast & crew
+├── index.html                    # static webpage — works on GitHub Pages
+├── app.py                        # Streamlit local app
+├── requirements.txt
+├── movie_recommender.ipynb       # full training notebook
+├── tmdb_5000_movies.csv          # TMDB dataset — movies
+├── tmdb_5000_credits.csv         # TMDB dataset — cast & crew
+├── README.md
+│
+├── Dataset/
+│   └── data.zip                  # pre-computed top-5 recs for 4,796 movies (2.8 MB)
+│
 └── models/
-    ├── movie_dict.pkl       # enriched movie dataframe
-    ├── similarity.pkl       # cosine similarity matrix (4796 x 4796)
-    └── movie_list.pkl       # list of all movie titles
+    ├── models.zip                # movie_dict.pkl + movie_list.pkl + plots (1.7 MB)
+    ├── movie_dict.pkl            # enriched movie dataframe
+    ├── movie_list.pkl            # list of all movie titles
+    ├── eda_overview.png          # EDA plots
+    ├── genre_distribution.png
+    └── similarity.pkl            # cosine similarity matrix — 177 MB, not in git
 ```
+
+> **Note**: `models/similarity.pkl` (177 MB) exceeds GitHub's file limit and is excluded from git.
+> Run `movie_recommender.ipynb` locally to regenerate it.
 
 ---
 
@@ -74,15 +84,14 @@ cd movie-recommender
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the app
+# 3. Run the notebook to generate models/similarity.pkl
+jupyter notebook movie_recommender.ipynb
+# Run all cells — saves pkl files to models/
+
+# 4. Run the Streamlit app
 streamlit run app.py
 # Opens at http://localhost:8501
 ```
-
-### Option 3 — Retrain the model
-
-Open `movie_recommender.ipynb` in Jupyter or VS Code and run all cells.
-It reads the two CSV files and saves fresh pkl files to `models/`.
 
 ---
 
@@ -104,7 +113,7 @@ It reads the two CSV files and saves fresh pkl files to `models/`.
 | NLP | NLTK Porter Stemmer |
 | Data | TMDB 5000 dataset (Kaggle) |
 | Posters | TMDB API |
-| Web page | Pure HTML / CSS / JavaScript |
+| Web page | Pure HTML / CSS / JavaScript + JSZip |
 | Local app | Streamlit |
 | Hosting | GitHub Pages (static) |
 
