@@ -4,11 +4,12 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-TF--IDF-orange)](https://scikit-learn.org)
 [![TMDB](https://img.shields.io/badge/TMDB-API-brightgreen)](https://themoviedb.org)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-blueviolet)](https://rajneeshbabu.github.io/movie-recommender)
+[![Project Page](https://img.shields.io/badge/Project%20Page-GitHub%20Pages-222?logo=github)](https://rajneeshbabu.github.io/movie-recommender/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 A content-based movie recommendation system. Pick any movie from 4,796 titles and instantly get 5 similar recommendations with posters, ratings, genres, and match scores.
 
-**Live Demo**: [rajneeshbabu.github.io/movie-recommender](https://rajneeshbabu.github.io/movie-recommender)
+🌐 **[View Project Page →](https://rajneeshbabu.github.io/movie-recommender/)**
 
 ---
 
